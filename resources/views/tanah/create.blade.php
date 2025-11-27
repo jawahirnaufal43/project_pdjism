@@ -21,9 +21,17 @@
                         class="form-control">
                 </div>
                 <div class="mb-2">
-                    <label for="inputLuasTanah" class="form-label">Luas</label>
-                    <input type="text" name="luas" id="inputLuasTanah" value="{{ old('luas') }}" class="form-control">
-                </div>
+    <label for="inputLuasTanah" class="form-label">Luas</label>
+    <input type="number" name="luas" id="inputLuasTanah"
+        value="{{ old('luas') }}" class="form-control"
+        step="1" min="0">
+</div>
+
+<script>
+document.getElementById('inputLuasTanah').addEventListener('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+});
+</script>
                 <div class="mb-2">
                     <label for="inputNoSertifikat" class="form-label">No Sertifikat</label>
                     <input type="text" name="no_sertifikat" id="inputNoSertifikat" value="{{ old('no_sertifikat') }}"
